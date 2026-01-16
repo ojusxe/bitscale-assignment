@@ -158,14 +158,14 @@ export function Footer() {
           <Tooltip>
             <TooltipTrigger asChild>
               <button
-                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-normal text-slate-600 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shrink-0"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold text-slate-600 bg-slate-100 shadow-lg border border-slate-200 rounded-2xl hover:bg-slate-300 transition-colors shrink-0"
                 onClick={handleAddTab}
               >
                 <Plus className="h-4 w-4" />
                 <span className="hidden sm:inline">Grid</span>
               </button>
             </TooltipTrigger>
-            <TooltipContent>
+            <TooltipContent> shadow-lg
               <p>Add new grid</p>
             </TooltipContent>
           </Tooltip>
