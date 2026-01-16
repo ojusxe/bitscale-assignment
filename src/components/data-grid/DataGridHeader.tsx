@@ -1,6 +1,6 @@
 "use client"
 
-import { Play, Users, Mail, ChevronRight, Calendar, Calendar1, User2, User2Icon, School, University } from 'lucide-react'
+import { Play, Mail, ChevronRight, Calendar1, User2Icon, University } from 'lucide-react'
 import { ColumnConfig } from './columns'
 import { ResizeHandle } from './ResizeHandle'
 
@@ -48,7 +48,7 @@ export function DataGridHeader({
   return (
     <thead className="sticky top-0 z-10 bg-slate-50 border-b border-slate-200">
       <tr className="h-(--grid-header-height)">
-        {columns.map((col, idx) => {
+        {columns.map((col) => {
           if (col.id === 'row-number') {
             return (
               <th 

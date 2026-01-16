@@ -158,86 +158,77 @@ export function Footer() {
 
   return (
     <TooltipProvider>
-      <footer className="flex flex-col bg-white border-t border-slate-200">
-        <div className="flex h-10 items-center justify-between border-b border-slate-200">
-          <div className="flex items-center h-full flex-1 min-w-0">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <button
-                  className="flex items-center gap-1 px-3 h-full text-[13px] font-normal text-slate-600 hover:bg-slate-50 transition-colors border-r border-slate-200 flex-shrink-0"
-                  onClick={handleAddTab}
-                >
-                  <Plus className="h-4 w-4" />
-                  <span className="hidden sm:inline">Grid</span>
-                </button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Add new grid</p>
-              </TooltipContent>
-            </Tooltip>
+      <footer className="flex h-10 items-center justify-between bg-white border-t border-slate-200">
+        <div className="flex items-center h-full flex-1 min-w-0">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                className="flex items-center gap-1 px-3 h-full text-[13px] font-normal text-slate-600 hover:bg-slate-50 transition-colors border-r border-slate-200 shrink-0"
+                onClick={handleAddTab}
+              >
+                <Plus className="h-4 w-4" />
+                <span className="hidden sm:inline">Grid</span>
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Add new grid</p>
+            </TooltipContent>
+          </Tooltip>
 
-            <div
-              id="tabs-container"
-              className="flex items-center h-full overflow-x-auto scrollbar-hide flex-1"
-            >
-              {tabs.map((tab) => (
-                <Tab
-                  key={tab.id}
-                  tab={tab}
-                  isActive={activeTab === tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  onClose={() => handleCloseTab(tab.id)}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-1 px-2 flex-shrink-0">
-            <button
-              className="p-1 hover:bg-slate-100 rounded transition-colors disabled:opacity-30"
-              onClick={handleScrollLeft}
-              disabled={!canScrollLeft}
-            >
-              <ChevronLeft className="h-4 w-4 text-slate-400" />
-            </button>
-            <button
-              className="p-1 hover:bg-slate-100 rounded transition-colors disabled:opacity-30"
-              onClick={handleScrollRight}
-              disabled={!canScrollRight}
-            >
-              <ChevronRight className="h-4 w-4 text-slate-400" />
-            </button>
+          <div
+            id="tabs-container"
+            className="flex items-center h-full overflow-x-auto scrollbar-hide flex-1"
+          >
+            {tabs.map((tab) => (
+              <Tab
+                key={tab.id}
+                tab={tab}
+                isActive={activeTab === tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                onClose={() => handleCloseTab(tab.id)}
+              />
+            ))}
           </div>
         </div>
 
-        <div className="flex h-10 items-center justify-between px-4 bg-slate-50">
-          <div className="flex items-center gap-2">
-            <div className="h-2 w-2 bg-blue-500 rounded-full animate-pulse" />
-            <span className="text-[12px] text-slate-400 hidden sm:inline">Processing...</span>
-          </div>
+        <div className="flex items-center gap-1 px-2 shrink-0 border-l border-slate-200">
+          <button
+            className="p-1 hover:bg-slate-100 rounded transition-colors disabled:opacity-30"
+            onClick={handleScrollLeft}
+            disabled={!canScrollLeft}
+          >
+            <ChevronLeft className="h-4 w-4 text-slate-400" />
+          </button>
+          <button
+            className="p-1 hover:bg-slate-100 rounded transition-colors disabled:opacity-30"
+            onClick={handleScrollRight}
+            disabled={!canScrollRight}
+          >
+            <ChevronRight className="h-4 w-4 text-slate-400" />
+          </button>
+        </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
-            <ActionButton
-              icon={<XCircle className="h-4 w-4" />}
-              label="Kill Run"
-              variant="danger"
-            />
+        <div className="flex items-center gap-2 sm:gap-3 px-3 shrink-0 border-l border-slate-200">
+          <ActionButton
+            icon={<XCircle className="h-4 w-4" />}
+            label="Kill Run"
+            variant="danger"
+          />
 
-            <ActionButton
-              icon={<Play className="h-3.5 w-3.5 text-slate-400" />}
-              label="Auto Run"
-            />
+          <ActionButton
+            icon={<Play className="h-3.5 w-3.5 text-slate-400" />}
+            label="Auto Run"
+          />
 
-            <ActionButton
-              icon={<Sparkles className="h-3.5 w-3.5 text-blue-500" />}
-              label="Auto Dedupe"
-            />
+          <ActionButton
+            icon={<Sparkles className="h-3.5 w-3.5 text-blue-500" />}
+            label="Auto Dedupe"
+          />
 
-            <ActionButton
-              icon={<HelpCircle className="h-3.5 w-3.5 text-slate-400" />}
-              label="Support"
-            />
-          </div>
+          <ActionButton
+            icon={<HelpCircle className="h-3.5 w-3.5 text-slate-400" />}
+            label="Support"
+          />
         </div>
       </footer>
     </TooltipProvider>

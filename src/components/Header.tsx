@@ -1,7 +1,4 @@
-"use client"
-
-import { useState } from 'react'
-import { Home, Star, CloudCheck, Currency, LucideCurrency, CoinsIcon } from 'lucide-react'
+import { Home, Star, CloudCheck } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
   DropdownMenu,
@@ -12,7 +9,7 @@ import {
   DropdownMenuShortcut,
 } from '@/components/ui/dropdown-menu'
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip'
-import { userMenuItems, workbookMenuItems, MenuItem } from '@/config/menus'
+import { workbookMenuItems, MenuItem } from '@/config/menus'
 import { defaultProgressState, defaultCreditState } from '@/config/tabs'
 
 function DropdownMenuItems({ items }: { items: MenuItem[] }) {

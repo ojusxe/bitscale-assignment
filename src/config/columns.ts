@@ -1,4 +1,4 @@
-import { LucideIcon, User, Play, ExternalLink, Mail } from 'lucide-react'
+import { LucideIcon, User, Play, ExternalLink } from 'lucide-react'
 
 export interface ColumnConfig {
   id: string

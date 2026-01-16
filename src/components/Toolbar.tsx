@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronDown, ArrowUpDown, Filter, Sparkles, Wand2, Lock, Table2, Columns3, WandSparkles, Stars, Columns2, Database } from 'lucide-react'
+import { ChevronDown, ArrowUpDown, Filter, Sparkles, Table2, Stars, Columns2, Database } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
   DropdownMenu,

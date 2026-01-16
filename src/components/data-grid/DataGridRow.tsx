@@ -13,11 +13,10 @@ interface DataGridRowProps {
   row: GridRow
   index: number
   isSelected: boolean
-  onSelect: (id: string) => void
   columnWidths: Record<string, number>
 }
 
-export function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: DataGridRowProps) {
+export function DataGridRow({ row, index, isSelected, columnWidths }: DataGridRowProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (

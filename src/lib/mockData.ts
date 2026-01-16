@@ -36,7 +36,6 @@ const websites = [
 
 // generate a single row (deterministic based on index)
 function generateRow(index: number): GridRow {
-  // Use index-based logic instead of Math.random() to avoid hydration mismatch
   const hasFullData = index < 13 || index % 3 !== 0
   const isEmailFound = index % 5 !== 0 && index % 7 !== 0
   
@@ -59,7 +58,6 @@ export function generateRows(start: number, count: number): GridRow[] {
 // Initial mock rows for backward compatibility
 export const mockRows: GridRow[] = generateRows(0, 50)
 
-// can be any large number for "infinite" scroll
 export const TOTAL_ROWS = 2000
 
 export const companyLogos: Record<string, string> = {

@@ -118,7 +118,6 @@ export function DataGrid() {
                 row={row}
                 index={startIndex + idx}
                 isSelected={selectedRows.has(row.id)}
-                onSelect={handleSelectRow}
                 columnWidths={columnWidths}
               />
             ))}
