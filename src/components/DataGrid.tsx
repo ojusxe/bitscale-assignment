@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback } from 'react'
 import { mockRows, GridRow } from '@/lib/mockData'
-import { ChevronRight, Check, Play, User, Users, ExternalLink } from 'lucide-react'
+import { ChevronRight, Check, Play, User, Users, ExternalLink, Mail } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip'
 
@@ -72,8 +72,8 @@ function CompanyLogo({ name }: { name: string }) {
 function StatusCell({ status }: { status: string }) {
   if (status === 'Email Found') {
     return (
-      <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded px-2 py-1">
-        <div className="h-4 w-4 bg-emerald-500 rounded flex items-center justify-center flex-shrink-0">
+      <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded px-2 py-1 w-[120px]">
+        <div className="h-4 w-4 bg-emerald-500 rounded flex items-center justify-center shrink-0">
           <Check className="h-2.5 w-2.5 text-white" strokeWidth={3} />
         </div>
         <span className="text-[13px] text-emerald-700 font-normal">Email Found</span>
@@ -83,11 +83,13 @@ function StatusCell({ status }: { status: string }) {
 
   if (status === 'Run condition not met') {
     return (
-      <span className="text-[13px] text-amber-600 italic font-normal">Run condition not met</span>
+      <div className="w-[120px]">
+        <span className="text-[13px] text-amber-600 italic font-normal">Run condition not met</span>
+      </div>
     )
   }
 
-  return <span className="text-[13px] text-slate-500 font-normal">{status}</span>
+  return <div className="w-[120px]"><span className="text-[13px] text-slate-500 font-normal">{status}</span></div>
 }
 
 interface ColumnConfig {
@@ -197,14 +199,14 @@ function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: DataGri
       <td className="border-r border-slate-100 px-3" style={{ width: columnWidths['imported-data'] }}>
         {row.importedData.name && (
           <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 rounded-full pl-1.5 pr-3 py-1 transition-colors cursor-pointer">
-              <div className="h-6 w-6 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0">
+            <div className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 rounded-full pl-1.5 pr-3 py-1 transition-colors cursor-pointer w-[140px]">
+              <div className="h-6 w-6 rounded-full bg-teal-100 flex items-center justify-center shrink-0">
                 <Users className="h-3.5 w-3.5 text-teal-600" />
               </div>
-              <span className="text-slate-700 font-medium text-[13px] whitespace-nowrap">{row.importedData.name}</span>
+              <span className="text-slate-700 font-medium text-[13px] truncate">{row.importedData.name}</span>
             </div>
             <ChevronRight className={cn(
-              'h-4 w-4 ml-2 transition-all flex-shrink-0 text-slate-300',
+              'h-4 w-4 ml-2 transition-all shrink-0 text-slate-300',
               isHovered && 'text-slate-400'
             )} />
           </div>
@@ -259,7 +261,7 @@ function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: DataGri
         <div className="flex items-center justify-between">
           <StatusCell status={row.emailWaterfall} />
           <ChevronRight className={cn(
-            'h-4 w-4 ml-2 transition-all flex-shrink-0 text-slate-300',
+            'h-4 w-4 ml-2 transition-all shrink-0 text-slate-300',
             isHovered && 'text-slate-400'
           )} />
         </div>
@@ -373,7 +375,7 @@ export function DataGrid() {
               </th>
               <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['email-waterfall'], minWidth: defaultColumns[6].minWidth }}>
                 <div className="flex items-center gap-2">
-                  <ExternalLink className="h-3.5 w-3.5 text-slate-400" />
+                  <Mail className="h-3.5 w-3.5 text-slate-400" />
                   <span>Email Waterfall</span>
                 </div>
                 <ResizeHandle columnId="email-waterfall" onResize={handleResize} />
