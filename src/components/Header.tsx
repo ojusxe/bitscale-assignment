@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Home, Star, MessageCircle, Maximize2, Menu, X, CloudSync, CloudBackup, CloudCheck, Coins, CoinsIcon, Currency } from 'lucide-react'
+import { Home, Star, CloudCheck, Currency, LucideCurrency, CoinsIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
   DropdownMenu,
@@ -43,8 +43,8 @@ function DropdownMenuItems({ items }: { items: MenuItem[] }) {
 
 function ProgressBar({ value, status }: { value: number; status: string }) {
   return (
-    <div className="flex items-center gap-2.5 bg-slate-50 rounded-full px-4 py-1.5 border border-slate-200">
-      <span className="text-[13px] font-medium text-slate-600 whitespace-nowrap">Grid running</span>
+    <div className="flex items-center gap-2.5 bg-slate-100 rounded-xl px-4 py-1">
+      <span className="text-md font-semibold text-slate-600">Grid running</span>
       <div className="h-1.5 w-24 bg-slate-200 rounded-full overflow-hidden">
         <div
           className={cn(
@@ -57,25 +57,26 @@ function ProgressBar({ value, status }: { value: number; status: string }) {
           style={{ width: `${value}%` }}
         />
       </div>
-      <span className="text-[13px] font-semibold text-slate-700">{value}%</span>
+      <span className="text-md font-semibold text-slate-700">{value}%</span>
     </div>
   )
 }
 
+// different badge colors based on plan - but havent added any interactivity yet
 function CreditsBadge({ current, total, plan }: { current: number; total: number; plan: string }) {
   return (
     <div className="flex items-center gap-2.5">
-      <div className="flex items-center gap-1.5 bg-green-50 border border-green-200 px-2.5 py-1 rounded-md">
-        <Currency className="h-4 w-4 text-green-600" />
+      <div className="flex items-center gap-1.5 bg-green-50 border-green-200 px-2.5 py-1 rounded-lg">
+        <Star className="h-4 w-4 text-green-600" />
         <span className="text-[13px] font-semibold text-green-700">{current}/{total}</span>
+        <div className={cn(
+          'text-xs font-semibold ml-2 px-2 py-0.75 rounded-lg',
+          plan === 'Free' && 'bg-green-700 text-white',
+          plan === 'Pro' && 'bg-blue-500 text-white',
+          plan === 'Enterprise' && 'bg-purple-500 text-white'
+        )}>
+          {plan}
       </div>
-      <div className={cn(
-        'text-[11px] font-semibold px-2.5 py-1 rounded-md',
-        plan === 'Free' && 'bg-emerald-500 text-white',
-        plan === 'Pro' && 'bg-blue-500 text-white',
-        plan === 'Enterprise' && 'bg-purple-500 text-white'
-      )}>
-        {plan}
       </div>
     </div>
   )
@@ -114,14 +115,14 @@ export function Header() {
           <div className="hidden md:flex items-center text-sm">
             <span className="text-slate-400">Workbook - Bitscale UX /UI testing flow</span>
             <span className="mx-2 text-slate-400">/</span>
-            <span className="font-medium text-slate-700 text-md">Bitscale grid only</span>
+            <span className="font-semibold text-slate-700 text-md">Bitscale grid only</span>
           </div>
         </div>
-
-        <div className="flex items-center gap-4">
-          <div className="hidden lg:block">
+        <div className="">
             <ProgressBar value={progress.value} status={progress.status} />
           </div>
+        <div className="flex items-center gap-4">
+          
 
           <Tooltip>
             <TooltipTrigger asChild>
@@ -137,17 +138,6 @@ export function Header() {
           <div className="">
             <CreditsBadge current={credits.current} total={credits.total} plan={credits.plan} />
           </div>
-
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-[13px] font-medium hover:opacity-90 transition-opacity">
-                U
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
-              <DropdownMenuItems items={userMenuItems} />
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </header>
     </TooltipProvider>
