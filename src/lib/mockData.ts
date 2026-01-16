@@ -14,170 +14,52 @@ export interface GridRow {
   emailWaterfall: 'Email Found' | 'Run condition not met';
 }
 
-export const mockRows: GridRow[] = [
-  {
-    id: '1',
-    importedData: { name: 'Mike Braham' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Google' },
-    companyWebsite: 'https://www.example.com',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Email Found',
-  },
-  {
-    id: '2',
-    importedData: { name: 'Alex Johnson' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Amazon' },
-    companyWebsite: 'https://www.sample.com',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Email Found',
-  },
-  {
-    id: '3',
-    importedData: { name: 'Sarah Thompson' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'LinkedIn' },
-    companyWebsite: 'https://www.testsite.com',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Run condition not met',
-  },
-  {
-    id: '4',
-    importedData: { name: 'David Lee' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Microsoft' },
-    companyWebsite: 'https://www.demo.com',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Run condition not met',
-  },
-  {
-    id: '5',
-    importedData: { name: 'Emily Carter' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'TED' },
-    companyWebsite: 'https://www.siteexample....',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Email Found',
-  },
-  {
-    id: '6',
-    importedData: { name: 'James Smith' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Unilever' },
-    companyWebsite: 'https://www.webpage.com',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Email Found',
-  },
-  {
-    id: '7',
-    importedData: { name: 'Laura White' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Apple' },
-    companyWebsite: 'https://www.mywebsite.c...',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Run condition not met',
-  },
-  {
-    id: '8',
-    importedData: { name: 'Chris Brown' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Google' },
-    companyWebsite: 'https://www.newsite.com',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Run condition not met',
-  },
-  {
-    id: '9',
-    importedData: { name: 'Jessica Green' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Unilever' },
-    companyWebsite: 'https://www.uniqueurl.com',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Email Found',
-  },
-  {
-    id: '10',
-    importedData: { name: 'Daniel Harris' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Microsoft' },
-    companyWebsite: 'https://www.originalsite.c...',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Email Found',
-  },
-  {
-    id: '11',
-    importedData: { name: 'Megan Clark' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Apple' },
-    companyWebsite: 'https://www.freshpage.c...',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Run condition not met',
-  },
-  {
-    id: '12',
-    importedData: { name: 'Brian Lewis' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'TED' },
-    companyWebsite: 'https://www.differentdo...',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Email Found',
-  },
-  {
-    id: '13',
-    importedData: { name: 'Samantha Hall' },
-    lastUpdatedAt: 'Oct 12, 2024 at 14:08 PM',
-    companyName: { name: 'Google' },
-    companyWebsite: 'https://www.alternativesi...',
-    linkedinJobUrl: 'https://www.linkedin.com...',
-    emailWaterfall: 'Email Found',
-  },
-  {
-    id: '14',
-    importedData: { name: 'Google' },
-    lastUpdatedAt: '',
-    companyName: { name: '' },
-    companyWebsite: '',
-    linkedinJobUrl: '',
-    emailWaterfall: 'Run condition not met',
-  },
-  {
-    id: '15',
-    importedData: { name: 'Amazon' },
-    lastUpdatedAt: '',
-    companyName: { name: '' },
-    companyWebsite: '',
-    linkedinJobUrl: '',
-    emailWaterfall: 'Run condition not met',
-  },
-  {
-    id: '16',
-    importedData: { name: 'LinkedIn' },
-    lastUpdatedAt: '',
-    companyName: { name: '' },
-    companyWebsite: '',
-    linkedinJobUrl: '',
-    emailWaterfall: 'Run condition not met',
-  },
-  {
-    id: '17',
-    importedData: { name: 'LinkedIn' },
-    lastUpdatedAt: '',
-    companyName: { name: '' },
-    companyWebsite: '',
-    linkedinJobUrl: '',
-    emailWaterfall: 'Run condition not met',
-  },
-  {
-    id: '18',
-    importedData: { name: 'LinkedIn' },
-    lastUpdatedAt: '',
-    companyName: { name: '' },
-    companyWebsite: '',
-    linkedinJobUrl: '',
-    emailWaterfall: 'Run condition not met',
-  },
-];
+// Sample data for generating rows
+const names = [
+  'Mike Braham', 'Alex Johnson', 'Sarah Thompson', 'David Lee', 'Emily Carter',
+  'James Smith', 'Laura White', 'Chris Brown', 'Jessica Green', 'Daniel Harris',
+  'Megan Clark', 'Brian Lewis', 'Samantha Hall', 'Ryan Martinez', 'Ashley Taylor',
+  'Kevin Wilson', 'Nicole Anderson', 'Matthew Thomas', 'Stephanie Jackson', 'Andrew Moore',
+  'Rachel Martin', 'Joshua Garcia', 'Amanda Rodriguez', 'Brandon Davis', 'Melissa Lopez',
+]
+
+const companies = [
+  'Google', 'Amazon', 'LinkedIn', 'Microsoft', 'Apple', 'TED', 'Unilever',
+  'Meta', 'Netflix', 'Spotify', 'Twitter', 'Uber', 'Airbnb', 'Slack', 'Zoom',
+  'Shopify', 'Salesforce', 'Adobe', 'IBM', 'Oracle',
+]
+
+const websites = [
+  'https://www.example.com', 'https://www.sample.com', 'https://www.testsite.com',
+  'https://www.demo.com', 'https://www.webpage.com', 'https://www.mywebsite.com',
+  'https://www.newsite.com', 'https://www.uniqueurl.com', 'https://www.freshpage.com',
+]
+
+// Generate a single row
+function generateRow(index: number): GridRow {
+  const hasFullData = index < 13 || Math.random() > 0.3
+  
+  return {
+    id: String(index + 1),
+    importedData: { name: names[index % names.length] },
+    lastUpdatedAt: hasFullData ? 'Oct 12, 2024 at 14:08 PM' : '',
+    companyName: { name: hasFullData ? companies[index % companies.length] : '' },
+    companyWebsite: hasFullData ? websites[index % websites.length] : '',
+    linkedinJobUrl: hasFullData ? 'https://www.linkedin.com...' : '',
+    emailWaterfall: Math.random() > 0.4 ? 'Email Found' : 'Run condition not met',
+  }
+}
+
+// Generate rows on demand
+export function generateRows(start: number, count: number): GridRow[] {
+  return Array.from({ length: count }, (_, i) => generateRow(start + i))
+}
+
+// Initial mock rows for backward compatibility
+export const mockRows: GridRow[] = generateRows(0, 50)
+
+// Total available rows (can be any large number for "infinite" scroll)
+export const TOTAL_ROWS = 2000
 
 export const companyLogos: Record<string, string> = {
   'Google': 'G',
