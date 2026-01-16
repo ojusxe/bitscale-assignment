@@ -55,17 +55,4 @@ export function generateRows(start: number, count: number): GridRow[] {
   return Array.from({ length: count }, (_, i) => generateRow(start + i))
 }
 
-// Initial mock rows for backward compatibility
-export const mockRows: GridRow[] = generateRows(0, 50)
-
 export const TOTAL_ROWS = 200
-
-export const companyLogos: Record<string, string> = {
-  'Google': 'G',
-  'Amazon': 'a',
-  'LinkedIn': 'in',
-  'Microsoft': 'M',
-  'TED': 'TED',
-  'Unilever': 'U',
-  'Apple': '',
-};

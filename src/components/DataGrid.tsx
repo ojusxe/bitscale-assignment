@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useMemo } from 'react'
-import { generateRows, TOTAL_ROWS, GridRow } from '@/lib/mockData'
+import { generateRows, TOTAL_ROWS } from '@/lib/mockData'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { DataGridHeader, DataGridRow, defaultColumns, ColumnConfig } from './data-grid'
 
@@ -10,10 +10,8 @@ export function DataGrid() {
   const [selectAll, setSelectAll] = useState(false)
   const [columns, setColumns] = useState<ColumnConfig[]>(defaultColumns)
 
-  // Generate all rows (memoized)
   const allRows = useMemo(() => generateRows(0, TOTAL_ROWS), [])
 
-  // Memoize column widths to prevent unnecessary re-renders
   const columnWidths = useMemo(() => {
     return columns.reduce((acc, col) => {
       acc[col.id] = col.width
@@ -39,19 +37,6 @@ export function DataGrid() {
     }
     setSelectAll(prev => !prev)
   }, [selectAll, allRows])
-
-  const handleSelectRow = useCallback((id: string) => {
-    setSelectedRows(prev => {
-      const newSelected = new Set(prev)
-      if (newSelected.has(id)) {
-        newSelected.delete(id)
-      } else {
-        newSelected.add(id)
-      }
-      setSelectAll(newSelected.size === TOTAL_ROWS)
-      return newSelected
-    })
-  }, [])
 
   return (
     <TooltipProvider>

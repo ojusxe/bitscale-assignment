@@ -1,13 +1,6 @@
 import {
   Home,
   FolderOpen,
-  Settings,
-  HelpCircle,
-  LogOut,
-  User,
-  Bell,
-  CreditCard,
-  Keyboard,
   FileText,
   Users,
   Plus,
@@ -46,30 +39,6 @@ export interface MenuItem {
   separator?: boolean;
   children?: MenuItem[];
 }
-
-export const userMenuItems: MenuItem[] = [
-  { id: "profile", label: "Profile", icon: User, shortcut: "⌘P" },
-  { id: "billing", label: "Billing", icon: CreditCard, shortcut: "⌘B" },
-  { id: "settings", label: "Settings", icon: Settings, shortcut: "⌘S" },
-  { id: "notifications", label: "Notifications", icon: Bell },
-  { id: "separator1", label: "", separator: true },
-  { id: "help", label: "Help & Support", icon: HelpCircle },
-  { id: "docs", label: "Documentation", icon: FileText },
-  {
-    id: "keyboard",
-    label: "Keyboard shortcuts",
-    icon: Keyboard,
-    shortcut: "⌘K",
-  },
-  { id: "separator2", label: "", separator: true },
-  {
-    id: "logout",
-    label: "Log out",
-    icon: LogOut,
-    shortcut: "⌘Q",
-    danger: true,
-  },
-];
 
 export const workbookMenuItems: MenuItem[] = [
   { id: "home", label: "Go to Home", icon: Home, shortcut: "⌘H" },
