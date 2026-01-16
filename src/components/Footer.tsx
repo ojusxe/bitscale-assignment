@@ -21,25 +21,21 @@ interface TabProps {
 }
 
 function Tab({ tab, isActive, onClick, onClose }: TabProps) {
-  const [isHovered, setIsHovered] = useState(false)
-
   return (
     <div
       className={cn(
-        'flex items-center gap-2 px-4 h-full text-[13px] cursor-pointer border-r border-slate-200 whitespace-nowrap transition-all relative group',
+        'flex items-center gap-2 px-4 h-full text-[13px] cursor-pointer whitespace-nowrap transition-all relative group',
         isActive
-          ? 'text-blue-600 font-medium bg-blue-50/50'
-          : 'text-slate-500 font-normal hover:bg-slate-50'
+          ? 'text-blue-600 font-medium'
+          : 'text-slate-500 font-normal hover:text-slate-700'
       )}
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       {isActive && (
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-blue-600" />
       )}
       <span>{tab.name}</span>
-      {isActive && (
+      {isActive ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button
@@ -71,8 +67,7 @@ function Tab({ tab, isActive, onClick, onClose }: TabProps) {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      )}
-      {!isActive && isHovered && (
+      ) : (
         <button
           className="p-0.5 hover:bg-slate-200 rounded transition-colors opacity-0 group-hover:opacity-100"
           onClick={(e) => {
@@ -159,11 +154,11 @@ export function Footer() {
   return (
     <TooltipProvider>
       <footer className="flex h-10 items-center justify-between bg-white border-t border-slate-200">
-        <div className="flex items-center h-full flex-1 min-w-0">
+        <div className="flex items-center h-full flex-1 min-w-0 gap-2 px-3">
           <Tooltip>
             <TooltipTrigger asChild>
               <button
-                className="flex items-center gap-1 px-3 h-full text-[13px] font-normal text-slate-600 hover:bg-slate-50 transition-colors border-r border-slate-200 shrink-0"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-normal text-slate-600 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shrink-0"
                 onClick={handleAddTab}
               >
                 <Plus className="h-4 w-4" />

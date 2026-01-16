@@ -10,7 +10,10 @@ interface NamePillProps {
 
 export function NamePill({ name, isHovered }: NamePillProps) {
   return (
-    <div className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 rounded-full pl-1.5 pr-2 py-1 transition-colors cursor-pointer max-w-full">
+    <div className={cn(
+      "inline-flex items-center bg-slate-100 hover:bg-slate-200 rounded-full pl-1.5 pr-2 py-1 transition-all cursor-pointer max-w-full",
+      isHovered ? "gap-3" : "gap-2"
+    )}>
       <div className="h-6 w-6 rounded-full flex items-center justify-center shrink-0">
         <Users className="h-3.5 w-3.5 text-blue-500" />
       </div>

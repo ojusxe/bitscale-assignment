@@ -9,6 +9,7 @@ https://www.figma.com/design/T6nzLmrrgim8sMeeso2ros/Bitscale-Assignment?node-id=
 - fetch company icons with google favicon services
 - mockdata for infinite scrolling - assisted with claude
 - resizable columns
+- add new grid tabs 
 
 ### todos
 - [ ] fix the processing bottom bar (we can combine the sticky grid and the bar)

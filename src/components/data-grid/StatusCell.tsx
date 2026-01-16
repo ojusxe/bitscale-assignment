@@ -11,14 +11,17 @@ interface StatusCellProps {
 export function StatusCell({ status, isHovered }: StatusCellProps) {
   if (status === 'Email Found') {
     return (
-      <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded px-2 py-1">
-        <div className="h-4 w-4 bg-emerald-500 rounded flex items-center justify-center shrink-0">
+      <div className={cn(
+        "inline-flex items-center bg-slate-100 rounded-2xl px-2 py-1 transition-all",
+        isHovered ? "gap-2" : "gap-1.5"
+      )}>
+        <div className="h-4 w-4 bg-green-600 rounded-xl flex items-center justify-center shrink-0">
           <Check className="h-2.5 w-2.5 text-white" strokeWidth={3} />
         </div>
-        <span className="text-[13px] text-emerald-700 font-normal whitespace-nowrap">Email Found</span>
+        <span className="text-[13px] text-slate-800 font-normal whitespace-nowrap">Email Found</span>
         <ChevronRight className={cn(
-          'h-4 w-4 ml-1 transition-all shrink-0 text-emerald-300',
-          isHovered && 'text-emerald-500'
+          'h-4 w-4 transition-all shrink-0 text-slate-400',
+          isHovered && 'text-slate-600'
         )} />
       </div>
     )
@@ -26,7 +29,7 @@ export function StatusCell({ status, isHovered }: StatusCellProps) {
 
   if (status === 'Run condition not met') {
     return (
-      <span className="text-[13px] text-amber-600 italic font-normal whitespace-nowrap">Run condition not met</span>
+      <span className="text-xs text-amber-600 italic font-normal whitespace-nowrap">Run condition not met</span>
     )
   }
 

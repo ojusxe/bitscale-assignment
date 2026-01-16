@@ -71,12 +71,17 @@ export function DataGridRow({ row, index, isSelected, columnWidths }: DataGridRo
         {row.companyWebsite && (
           <Tooltip>
             <TooltipTrigger asChild>
-              <div className="flex items-center gap-1.5 cursor-pointer group">
+              <a 
+                href={row.companyWebsite} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 cursor-pointer group"
+              >
                 <ExternalLink className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-500 shrink-0" />
                 <span className="text-slate-500 text-[13px] font-normal truncate group-hover:text-blue-600">
                   {row.companyWebsite}
                 </span>
-              </div>
+              </a>
             </TooltipTrigger>
             <TooltipContent>
               <p>{row.companyWebsite}</p>
@@ -92,12 +97,17 @@ export function DataGridRow({ row, index, isSelected, columnWidths }: DataGridRo
         {row.linkedinJobUrl && (
           <Tooltip>
             <TooltipTrigger asChild>
-              <div className="flex items-center gap-1.5 cursor-pointer group">
+              <a 
+                href={row.linkedinJobUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 cursor-pointer group"
+              >
                 <ExternalLink className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-500 shrink-0" />
                 <span className="text-slate-500 text-[13px] font-normal truncate group-hover:text-blue-600">
                   {row.linkedinJobUrl}
                 </span>
-              </div>
+              </a>
             </TooltipTrigger>
             <TooltipContent>
               <p>{row.linkedinJobUrl}</p>
