@@ -99,9 +99,7 @@ interface ColumnConfig {
 }
 
 const defaultColumns: ColumnConfig[] = [
-  { id: 'row-number', header: '#', minWidth: 40, width: 40, resizable: false },
-  { id: 'checkbox', header: '', minWidth: 32, width: 32, resizable: false },
-  { id: 'play', header: '', minWidth: 32, width: 32, resizable: false },
+  { id: 'row-number', header: '', minWidth: 70, width: 70, resizable: false },
   { id: 'imported-data', header: 'Imported Data', minWidth: 140, width: 200, resizable: true },
   { id: 'last-updated', header: 'Last Updated At', minWidth: 140, width: 190, resizable: true },
   { id: 'company-name', header: 'Company Name', minWidth: 120, width: 170, resizable: true },
@@ -180,7 +178,7 @@ function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: DataGri
       <td className="border-r border-slate-100 text-center text-slate-400 text-[13px] font-normal" style={{ width: columnWidths['row-number'] }}>
         {index + 1}
       </td>
-      <td className="border-r border-slate-100 text-center" style={{ width: columnWidths['checkbox'] }}>
+      {/* <td className="border-r border-slate-100 text-center" style={{ width: columnWidths['checkbox'] }}>
         <input
           type="checkbox"
           checked={isSelected}
@@ -195,7 +193,7 @@ function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: DataGri
             isHovered ? 'fill-slate-400 text-slate-400' : 'fill-slate-300 text-slate-300'
           )} />
         </button>
-      </td>
+      </td> */}
       <td className="border-r border-slate-100 px-3" style={{ width: columnWidths['imported-data'] }}>
         {row.importedData.name && (
           <div className="flex items-center justify-between">
@@ -325,19 +323,18 @@ export function DataGrid() {
         <table className="w-full border-collapse">
           <thead className="sticky top-0 z-10 bg-slate-50 border-b border-slate-200">
             <tr className="h-[var(--grid-header-height)]">
-              <th className="w-10 border-r border-slate-200 text-center font-medium text-slate-800 text-[13px]" style={{ width: columnWidths['row-number'] }}></th>
-              <th className="border-r border-slate-200 text-center" style={{ width: columnWidths['checkbox'] }}>
-                <input
-                  type="checkbox"
-                  checked={selectAll}
-                  onChange={handleSelectAll}
-                  className="h-4 w-4 rounded border-slate-300 cursor-pointer accent-blue-600"
-                />
+              <th className="border-r border-slate-200" style={{ width: columnWidths['row-number'] }}>
+                <div className="flex items-center justify-center gap-1.5">
+                  <input
+                    type="checkbox"
+                    checked={selectAll}
+                    onChange={handleSelectAll}
+                    className="h-4 w-4 rounded border-slate-300 cursor-pointer accent-blue-600"
+                  />
+                  <Play className="h-3.5 w-3.5 fill-slate-400 text-slate-400" />
+                </div>
               </th>
-              <th className="border-r border-slate-200 text-center" style={{ width: columnWidths['play'] }}>
-                <Play className="h-3.5 w-3.5 mx-auto fill-slate-400 text-slate-400" />
-              </th>
-              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['imported-data'], minWidth: defaultColumns[3].minWidth }}>
+              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['imported-data'], minWidth: defaultColumns[1].minWidth }}>
                 <div className="flex items-center gap-2">
                   <div className="h-5 w-5 bg-teal-100 flex items-center justify-center rounded">
                     <Users className="h-3 w-3 text-teal-600" />
@@ -346,35 +343,35 @@ export function DataGrid() {
                 </div>
                 <ResizeHandle columnId="imported-data" onResize={handleResize} />
               </th>
-              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['last-updated'], minWidth: defaultColumns[4].minWidth }}>
+              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['last-updated'], minWidth: defaultColumns[2].minWidth }}>
                 <div className="flex items-center gap-2">
                   <Play className="h-3.5 w-3.5 fill-slate-400 text-slate-400" />
                   <span>Last Updated At</span>
                 </div>
                 <ResizeHandle columnId="last-updated" onResize={handleResize} />
               </th>
-              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['company-name'], minWidth: defaultColumns[5].minWidth }}>
+              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['company-name'], minWidth: defaultColumns[3].minWidth }}>
                 <div className="flex items-center gap-2">
                   <FunctionIcon />
                   <span>Company Name</span>
                 </div>
                 <ResizeHandle columnId="company-name" onResize={handleResize} />
               </th>
-              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['company-website'], minWidth: defaultColumns[6].minWidth }}>
+              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['company-website'], minWidth: defaultColumns[4].minWidth }}>
                 <div className="flex items-center gap-2">
                   <FunctionIcon />
                   <span>Company Website</span>
                 </div>
                 <ResizeHandle columnId="company-website" onResize={handleResize} />
               </th>
-              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['linkedin-job-url'], minWidth: defaultColumns[7].minWidth }}>
+              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['linkedin-job-url'], minWidth: defaultColumns[5].minWidth }}>
                 <div className="flex items-center gap-2">
                   <FunctionIcon />
                   <span>LinkedIn Job URL</span>
                 </div>
                 <ResizeHandle columnId="linkedin-job-url" onResize={handleResize} />
               </th>
-              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['email-waterfall'], minWidth: defaultColumns[8].minWidth }}>
+              <th className="px-3 border-r border-slate-200 text-left font-medium text-slate-600 text-[13px] relative resizable" style={{ width: columnWidths['email-waterfall'], minWidth: defaultColumns[6].minWidth }}>
                 <div className="flex items-center gap-2">
                   <ExternalLink className="h-3.5 w-3.5 text-slate-400" />
                   <span>Email Waterfall</span>

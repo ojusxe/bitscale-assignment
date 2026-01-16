@@ -44,7 +44,7 @@ function DropdownMenuItems({ items }: { items: MenuItem[] }) {
 function ProgressBar({ value, status }: { value: number; status: string }) {
   return (
     <div className="flex items-center gap-2.5 bg-slate-100 rounded-xl px-4 py-1">
-      <span className="text-md font-semibold text-slate-600">Grid running</span>
+      <span className="text-sm font-semibold text-slate-600">Grid running</span>
       <div className="h-1.5 w-24 bg-slate-200 rounded-full overflow-hidden">
         <div
           className={cn(
@@ -57,7 +57,7 @@ function ProgressBar({ value, status }: { value: number; status: string }) {
           style={{ width: `${value}%` }}
         />
       </div>
-      <span className="text-md font-semibold text-slate-700">{value}%</span>
+      <span className="text-sm font-semibold text-slate-700">{value}%</span>
     </div>
   )
 }

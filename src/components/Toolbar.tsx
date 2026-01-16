@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronDown, ArrowUpDown, Filter, Sparkles, Wand2, Lock, Table2, Columns3 } from 'lucide-react'
+import { ChevronDown, ArrowUpDown, Filter, Sparkles, Wand2, Lock, Table2, Columns3, WandSparkles, Stars, Columns2, Database } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
   DropdownMenu,
@@ -43,7 +43,7 @@ function ToolbarButton({ label, icon, badge, badgeColor = 'blue', hasDropdown, m
         <div className={cn(
           'ml-0.5 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-semibold',
           badgeColor === 'green' ? 'bg-emerald-500' : 'bg-blue-500'
-        )}>
+        )}> 
           {badge}
         </div>
       )}
@@ -89,12 +89,11 @@ export function Toolbar() {
   return (
     <TooltipProvider>
       <div className="flex h-11 items-center justify-between px-3 border-b border-slate-200 bg-white gap-2 overflow-x-auto scrollbar-hide">
-        <div className="flex items-center gap-1.5 flex-shrink-0">
+        <div className="flex items-center gap-1.5">
           <ToolbarButton
             label="Load Data"
-            icon={<Lock className="h-3.5 w-3.5 text-slate-400" />}
+            icon={<Database className="h-3.5 w-3.5 text-slate-400" />}
             badge={1}
-            badgeColor="green"
             hasDropdown
             menuItems={loadDataMenuItems}
           />
@@ -115,7 +114,7 @@ export function Toolbar() {
 
           <ToolbarButton
             label="16/20 Columns"
-            icon={<Columns3 className="h-3.5 w-3.5 text-blue-500" />}
+            icon={<Columns2 className="h-3.5 w-3.5 text-blue-500" />}
             menuItems={columnMenuItems}
             hasDropdown
           />
@@ -136,12 +135,13 @@ export function Toolbar() {
           />
         </div>
 
-        <div className="flex items-center gap-1.5 flex-shrink-0">
+        <div className="flex items-center gap-1.5">
+          {/* action options - a bit complex, we can do it simpler way */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-1.5 h-7 px-3 rounded-md border border-slate-200 text-[13px] font-normal text-slate-600 bg-white hover:bg-slate-50 transition-colors">
+              <button className="flex items-center gap-1.5 h-7 px-3 rounded-md border border-slate-200 text-sm font-normal text-slate-600 bg-white hover:bg-slate-50 transition-colors">
                 <span>Action</span>
-                <ChevronDown className="h-3 w-3 text-slate-400" />
+                <ChevronDown className="h-3 w-3 text-slate-400" />  
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
@@ -194,8 +194,8 @@ export function Toolbar() {
 
           <Tooltip>
             <TooltipTrigger asChild>
-              <button className="h-7 w-7 flex items-center justify-center rounded-md bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 hover:opacity-90 transition-opacity">
-                <Wand2 className="h-3.5 w-3.5 text-white" />
+              <button className="h-7 w-7 flex items-center justify-center rounded-full bg-gradient-to-br from-purple-800 via-pink-700 to-pink-400 hover:opacity-90 transition-opacity">
+                <Stars className="h-3.5 w-3.5 text-white" />
               </button>
             </TooltipTrigger>
             <TooltipContent>
