@@ -14,7 +14,6 @@ export interface GridRow {
   emailWaterfall: 'Email Found' | 'Run condition not met';
 }
 
-// Sample data for generating rows
 const names = [
   'Mike Braham', 'Alex Johnson', 'Sarah Thompson', 'David Lee', 'Emily Carter',
   'James Smith', 'Laura White', 'Chris Brown', 'Jessica Green', 'Daniel Harris',
@@ -35,9 +34,11 @@ const websites = [
   'https://www.newsite.com', 'https://www.uniqueurl.com', 'https://www.freshpage.com',
 ]
 
-// Generate a single row
+// generate a single row (deterministic based on index)
 function generateRow(index: number): GridRow {
-  const hasFullData = index < 13 || Math.random() > 0.3
+  // Use index-based logic instead of Math.random() to avoid hydration mismatch
+  const hasFullData = index < 13 || index % 3 !== 0
+  const isEmailFound = index % 5 !== 0 && index % 7 !== 0
   
   return {
     id: String(index + 1),
@@ -46,11 +47,11 @@ function generateRow(index: number): GridRow {
     companyName: { name: hasFullData ? companies[index % companies.length] : '' },
     companyWebsite: hasFullData ? websites[index % websites.length] : '',
     linkedinJobUrl: hasFullData ? 'https://www.linkedin.com...' : '',
-    emailWaterfall: Math.random() > 0.4 ? 'Email Found' : 'Run condition not met',
+    emailWaterfall: isEmailFound ? 'Email Found' : 'Run condition not met',
   }
 }
 
-// Generate rows on demand
+// generate rows on demand
 export function generateRows(start: number, count: number): GridRow[] {
   return Array.from({ length: count }, (_, i) => generateRow(start + i))
 }
@@ -58,7 +59,7 @@ export function generateRows(start: number, count: number): GridRow[] {
 // Initial mock rows for backward compatibility
 export const mockRows: GridRow[] = generateRows(0, 50)
 
-// Total available rows (can be any large number for "infinite" scroll)
+// can be any large number for "infinite" scroll
 export const TOTAL_ROWS = 2000
 
 export const companyLogos: Record<string, string> = {

@@ -30,7 +30,6 @@ export function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Row Number */}
       <td 
         className="border-r border-slate-100 text-center text-slate-400 text-[13px] font-normal"
         style={{ width: columnWidths['row-number'] }}
@@ -38,7 +37,6 @@ export function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: 
         {index + 1}
       </td>
 
-      {/* Imported Data - Name Pill */}
       <td 
         className="border-r border-slate-100 px-3 overflow-hidden"
         style={{ width: columnWidths['imported-data'] }}
@@ -48,7 +46,6 @@ export function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: 
         )}
       </td>
 
-      {/* Last Updated At */}
       <td 
         className="border-r border-slate-100 px-3 text-slate-500 text-[13px] font-normal truncate"
         style={{ width: columnWidths['last-updated'] }}
@@ -56,7 +53,6 @@ export function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: 
         {row.lastUpdatedAt}
       </td>
 
-      {/* Company Name */}
       <td 
         className="border-r border-slate-100 px-3 overflow-hidden"
         style={{ width: columnWidths['company-name'] }}
@@ -69,7 +65,6 @@ export function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: 
         )}
       </td>
 
-      {/* Company Website */}
       <td 
         className="border-r border-slate-100 px-3 overflow-hidden"
         style={{ width: columnWidths['company-website'] }}
@@ -91,7 +86,6 @@ export function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: 
         )}
       </td>
 
-      {/* LinkedIn Job URL */}
       <td 
         className="border-r border-slate-100 px-3 overflow-hidden"
         style={{ width: columnWidths['linkedin-job-url'] }}
@@ -113,7 +107,6 @@ export function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: 
         )}
       </td>
 
-      {/* Email Waterfall */}
       <td 
         className="border-r border-slate-100 px-3 overflow-hidden"
         style={{ width: columnWidths['email-waterfall'] }}
@@ -121,7 +114,6 @@ export function DataGridRow({ row, index, isSelected, onSelect, columnWidths }: 
         <StatusCell status={row.emailWaterfall} isHovered={isHovered} />
       </td>
 
-      {/* Actions */}
       <td 
         className="px-1 text-center text-slate-300"
         style={{ width: columnWidths['actions'] }}
