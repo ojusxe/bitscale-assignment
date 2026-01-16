@@ -12,9 +12,12 @@ https://www.figma.com/design/T6nzLmrrgim8sMeeso2ros/Bitscale-Assignment?node-id=
 - add new grid tabs 
 
 ### todos
-- [ ] fix the processing bottom bar (we can combine the sticky grid and the bar)
-- 
+- [x] fix the processing bottom bar (we can combine the sticky grid and the bar)
+- [ ] add keyboard navigation support 
+- [ ] store column width in local storage
+- [ ] maybe we can add some test if we have some time left
 
 ### limitations 
 - i think the figma design is using SF_Pro apple font, i couldn't get it so i'm using Inter
-- 
+- can work on sorting and filtering logics but its mocked
+- mobile screen view optimization is minimal 
