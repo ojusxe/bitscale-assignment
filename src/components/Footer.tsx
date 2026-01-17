@@ -27,7 +27,7 @@ function Tab({ tab, isActive, onClick, onClose }: TabProps) {
         'flex items-center gap-2 px-4 h-full text-[13px] cursor-pointer whitespace-nowrap transition-all relative group',
         isActive
           ? 'text-blue-600 font-medium'
-          : 'text-slate-500 font-normal hover:text-slate-700'
+          : 'text-slate-700 font-normal hover:text-slate-900'
       )}
       onClick={onClick}
     >
@@ -98,7 +98,7 @@ function ActionButton({ icon, label, variant = 'default', onClick }: ActionButto
             'flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 rounded-md bg-white text-[13px] font-normal transition-colors',
             variant === 'danger'
               ? 'text-red-500 hover:bg-red-50 hover:border-red-200'
-              : 'text-slate-600 hover:bg-slate-50'
+              : 'text-slate-800 hover:bg-slate-50'
           )}
           onClick={onClick}
         >
@@ -158,7 +158,7 @@ export function Footer() {
           <Tooltip>
             <TooltipTrigger asChild>
               <button
-                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold text-slate-600 bg-slate-100 shadow-lg border border-slate-200 rounded-2xl hover:bg-slate-300 transition-colors shrink-0"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold text-slate-800 bg-slate-100 shadow-lg border border-slate-200 rounded-2xl hover:bg-slate-300 transition-colors shrink-0"
                 onClick={handleAddTab}
               >
                 <Plus className="h-4 w-4" />

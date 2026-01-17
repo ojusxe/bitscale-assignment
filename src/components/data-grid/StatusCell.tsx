@@ -33,5 +33,5 @@ export function StatusCell({ status, isHovered }: StatusCellProps) {
     )
   }
 
-  return <span className="text-[13px] text-slate-500 font-normal">{status}</span>
+  return <span className="text-[13px] text-slate-800 font-normal">{status}</span>
 }

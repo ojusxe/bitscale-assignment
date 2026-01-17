@@ -8,6 +8,7 @@ import { DataGridHeader, DataGridRow, defaultColumns, ColumnConfig } from './dat
 export function DataGrid() {
   const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set())
   const [selectAll, setSelectAll] = useState(false)
+  const [selectedColumn, setSelectedColumn] = useState<string | null>(null)
   const [columns, setColumns] = useState<ColumnConfig[]>(defaultColumns)
 
   const allRows = useMemo(() => generateRows(0, TOTAL_ROWS), [])
@@ -38,6 +39,10 @@ export function DataGrid() {
     setSelectAll(prev => !prev)
   }, [selectAll, allRows])
 
+  const handleSelectColumn = useCallback((columnId: string) => {
+    setSelectedColumn(prev => prev === columnId ? null : columnId)
+  }, [])
+
   return (
     <TooltipProvider>
       <div 
@@ -48,7 +53,9 @@ export function DataGrid() {
             columns={columns}
             columnWidths={columnWidths}
             selectAll={selectAll}
+            selectedColumn={selectedColumn}
             onSelectAll={handleSelectAll}
+            onSelectColumn={handleSelectColumn}
             onResize={handleResize}
           />
           <tbody>
@@ -58,6 +65,7 @@ export function DataGrid() {
                 row={row}
                 index={idx}
                 isSelected={selectedRows.has(row.id)}
+                selectedColumn={selectedColumn}
                 columnWidths={columnWidths}
                 columns={columns}
               />

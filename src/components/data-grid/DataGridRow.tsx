@@ -15,11 +15,12 @@ interface DataGridRowProps {
   row: GridRow
   index: number
   isSelected: boolean
+  selectedColumn: string | null
   columnWidths: Record<string, number>
   columns: ColumnConfig[]
 }
 
-export const DataGridRow = memo(function DataGridRow({ row, index, isSelected, columnWidths, columns }: DataGridRowProps) {
+export const DataGridRow = memo(function DataGridRow({ row, index, isSelected, selectedColumn, columnWidths, columns }: DataGridRowProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   const renderCellContent = (colId: string) => {
@@ -34,7 +35,7 @@ export const DataGridRow = memo(function DataGridRow({ row, index, isSelected, c
         return row.companyName.name && (
           <div className="flex items-center gap-2">
             <CompanyLogo name={row.companyName.name} />
-            <span className="text-slate-700 text-[13px] font-normal truncate">{row.companyName.name}</span>
+            <span className="text-slate-900 text-[13px] font-normal truncate">{row.companyName.name}</span>
           </div>
         )
       case 'company-website':
@@ -48,7 +49,7 @@ export const DataGridRow = memo(function DataGridRow({ row, index, isSelected, c
                 className="flex items-center gap-1.5 cursor-pointer group"
               >
                 <ExternalLink className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-500 shrink-0" />
-                <span className="text-slate-500 text-[13px] font-normal truncate group-hover:text-blue-600">
+                <span className="text-slate-800 text-[13px] font-normal truncate group-hover:text-blue-600">
                   {row.companyWebsite}
                 </span>
               </a>
@@ -69,7 +70,7 @@ export const DataGridRow = memo(function DataGridRow({ row, index, isSelected, c
                 className="flex items-center gap-1.5 cursor-pointer group"
               >
                 <ExternalLink className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-500 shrink-0" />
-                <span className="text-slate-500 text-[13px] font-normal truncate group-hover:text-blue-600">
+                <span className="text-slate-800 text-[13px] font-normal truncate group-hover:text-blue-600">
                   {row.linkedinJobUrl}
                 </span>
               </a>
@@ -99,7 +100,7 @@ export const DataGridRow = memo(function DataGridRow({ row, index, isSelected, c
       case 'email-waterfall':
         return "border-r border-slate-100 px-3 overflow-hidden"
       case 'last-updated':
-        return "border-r border-slate-100 px-3 text-slate-500 text-[13px] font-normal truncate"
+        return "border-r border-slate-100 px-3 text-slate-800 text-[13px] font-normal truncate"
       case 'actions':
         return "px-1 text-center text-slate-300"
       default:
@@ -120,7 +121,10 @@ export const DataGridRow = memo(function DataGridRow({ row, index, isSelected, c
       {columns.map((col) => (
         <td
           key={col.id}
-          className={getCellClassName(col.id)}
+          className={cn(
+            getCellClassName(col.id),
+            selectedColumn === col.id && 'bg-blue-50/70'
+          )}
           style={{ width: columnWidths[col.id] }}
         >
           {renderCellContent(col.id)}

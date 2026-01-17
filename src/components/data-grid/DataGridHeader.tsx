@@ -12,15 +12,19 @@ interface DataGridHeaderProps {
   columns: ColumnConfig[]
   columnWidths: Record<string, number>
   selectAll: boolean
+  selectedColumn: string | null
   onSelectAll: () => void
+  onSelectColumn: (columnId: string) => void
   onResize: (columnId: string, delta: number) => void
 }
 
 export function DataGridHeader({ 
   columns, 
   columnWidths, 
-  selectAll, 
-  onSelectAll, 
+  selectAll,
+  selectedColumn,
+  onSelectAll,
+  onSelectColumn,
   onResize 
 }: DataGridHeaderProps) {
   const getColumnIcon = (columnId: string) => {
@@ -28,8 +32,6 @@ export function DataGridHeader({
       case 'imported-data':
         return (
           <div className="h-7 w-7 flex items-center justify-center rounded-xl">
-            <User2Icon className="h-6 w-6 text-slate-600" />
-            <University className="h-6 w-6 text-green-600" />
           </div>
         )
       case 'last-updated':
@@ -84,8 +86,9 @@ export function DataGridHeader({
           return (
             <th 
               key={col.id}
-              className="px-3 border-r border-slate-200 text-left font-semibold text-slate-600 text-sm relative"
+              className={`px-3 border-r border-slate-200 text-left font-semibold text-slate-800 text-sm relative cursor-pointer hover:bg-slate-100 transition-colors ${selectedColumn === col.id ? 'bg-blue-50' : ''}`}
               style={{ width: columnWidths[col.id], minWidth: col.minWidth }}
+              onClick={() => onSelectColumn(col.id)}
             >
               <div className="flex items-center gap-2">
                 {getColumnIcon(col.id)}

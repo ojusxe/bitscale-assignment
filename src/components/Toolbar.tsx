@@ -34,7 +34,7 @@ interface ToolbarButtonProps {
 function ToolbarButton({ label, icon, badge, badgeColor = 'blue', hasDropdown, menuItems, className }: ToolbarButtonProps) {
   const content = (
     <button className={cn(
-      'flex items-center gap-1.5 h-7 px-2.5 rounded-md border border-slate-200 text-[13px] font-normal text-slate-600 bg-white hover:bg-slate-50 transition-colors',
+      'flex items-center gap-1.5 h-7 px-2.5 rounded-md border border-slate-200 text-[13px] font-normal text-slate-800 bg-white hover:bg-slate-50 transition-colors',
       className
     )}>
       {icon}
@@ -139,7 +139,7 @@ export function Toolbar() {
           {/* action options - a bit complex, we can do it simpler way */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-1.5 h-7 px-3 rounded-md border border-slate-200 text-sm font-normal text-slate-600 bg-white hover:bg-slate-50 transition-colors">
+              <button className="flex items-center gap-1.5 h-7 px-3 rounded-md border border-slate-200 text-sm font-normal text-slate-800 bg-white hover:bg-slate-50 transition-colors">
                 <span>Action</span>
                 <ChevronDown className="h-3 w-3 text-slate-400" />  
               </button>

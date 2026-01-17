@@ -41,7 +41,7 @@ function DropdownMenuItems({ items }: { items: MenuItem[] }) {
 function ProgressBar({ value, status }: { value: number; status: string }) {
   return (
     <div className="flex items-center gap-2.5 bg-slate-100 rounded-xl px-4 py-1">
-      <span className="text-sm font-semibold text-slate-600">Grid running</span>
+      <span className="text-sm font-semibold text-slate-800">Grid running</span>
       <div className="h-1.5 w-24 bg-slate-200 rounded-full overflow-hidden">
         <div
           className={cn(
@@ -90,7 +90,7 @@ export function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button className="p-1.5 hover:bg-slate-200 bg-slate-100 rounded-md transition-colors">
-                <Home className="h-4 w-4 text-slate-600" />
+                <Home className="h-4 w-4 text-slate-800" />
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56">
@@ -110,8 +110,8 @@ export function Header() {
           </Tooltip>
 
           <div className="hidden md:flex items-center text-sm">
-            <span className="text-slate-400">Workbook - Bitscale UX /UI testing flow</span>
-            <span className="mx-2 text-slate-400">/</span>
+            <span className="text-slate-500">Workbook - Bitscale UX /UI testing flow</span>
+            <span className="mx-2 text-slate-500">/</span>
             <span className="font-semibold text-slate-700 text-md">Bitscale grid only</span>
           </div>
         </div>
@@ -124,7 +124,7 @@ export function Header() {
           <Tooltip>
             <TooltipTrigger asChild>
               <button className="p-1.5 hover:bg-slate-100 rounded-md transition-colors">
-                <CloudCheck className="h-4 w-4 text-slate-600" />
+                <CloudCheck className="h-4 w-4 text-slate-800" />
               </button>
             </TooltipTrigger>
             <TooltipContent>
