@@ -10,6 +10,7 @@ https://www.figma.com/design/T6nzLmrrgim8sMeeso2ros/Bitscale-Assignment?node-id=
 - mockdata for infinite scrolling - assisted with claude
 - resizable columns
 - add new grid tabs 
+- click table header to select all column cells
 
 ### todos
 - [x] fix the processing bottom bar (we can combine the sticky grid and the bar)
