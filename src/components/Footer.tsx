@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from 'react'
-import { Plus, ChevronLeft, ChevronRight, XCircle, Play, Sparkles, HelpCircle, MoreHorizontal, X, Trash2, Copy, Edit2 } from 'lucide-react'
+import Image from 'next/image'
+import { Plus, ChevronLeft, ChevronRight, XCircle, Play, Sparkles, MoreHorizontal, X, Trash2, Copy, Edit2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { gridTabs, TabConfig } from '@/config/tabs'
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip'
@@ -221,7 +222,7 @@ export function Footer() {
           />
 
           <ActionButton
-            icon={<HelpCircle className="h-3.5 w-3.5 text-slate-400" />}
+            icon={<Image src="/bitscale-favicon.png" alt="Bitscale" width={14} height={14} />}
             label="Support"
           />
         </div>

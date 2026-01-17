@@ -22,3 +22,4 @@ https://www.figma.com/design/T6nzLmrrgim8sMeeso2ros/Bitscale-Assignment?node-id=
 - i think the figma design is using SF_Pro apple font, i couldn't get it so i'm using Inter
 - can work on sorting and filtering logics but its mocked
 - mobile screen view optimization is minimal 
+- could've used glide data grid library instead of tables

@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Bitscale your GTM",
   description: "",
+  icons: {
+    icon: "/bitscale-favicon.png",
+  },
 };
 
 export default function RootLayout({
